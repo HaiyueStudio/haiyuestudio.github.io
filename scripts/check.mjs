@@ -31,6 +31,7 @@ if(ads.includes('3940256099942544')) errors.push('Demo ad publisher in public ar
 if(config.adMobPublisherId && !ads.includes(`google.com, ${config.adMobPublisherId}, DIRECT, f08c47fec0942fa0`)) errors.push('app-ads.txt does not match configured publisher');
 if(process.argv.includes('--release')) {
   if(!config.supportEmail) errors.push('Public support email missing');
+  if(typeof config.operatorName !== 'string' || !config.operatorName.trim()) errors.push('Actual privacy policy operator missing');
   if(!config.privacyReviewed) errors.push('Privacy policy needs review against final iOS advertising configuration');
   if(!config.adMobPublisherId) errors.push('AdMob publisher ID missing; app-ads.txt cannot verify ownership yet');
 }
