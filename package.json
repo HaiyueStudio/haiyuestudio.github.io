@@ -1,0 +1,11 @@
+{
+  "name": "haiyue-studio-website",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs",
+    "check:release": "node scripts/check.mjs --release"
+  },
+  "engines": { "node": ">=22" }
+}
