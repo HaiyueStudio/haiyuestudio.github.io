@@ -148,3 +148,20 @@ h2{font-size:30px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}
 *,*:before,*:after{transition:none!important}
 }
+
+/* Moonlight Sudoku uses real native captures and the shared studio typography. */
+.sudoku-hero{display:grid;grid-template-columns:1.3fr .7fr;align-items:center;gap:65px;padding:65px 0}
+.sudoku-hero-shot{margin:0 auto;max-width:285px}
+.sudoku-hero-shot img{border-radius:25px;border:1px solid #3c6070;box-shadow:0 26px 70px #0006}
+.sudoku-hero-shot figcaption{font-size:11px;color:var(--muted);text-align:center;margin-top:14px}
+.sudoku-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.sudoku-gallery figure{margin:0;min-width:0}
+.sudoku-gallery img{width:100%;border:1px solid #3c6070;border-radius:16px;background:#061015}
+.sudoku-gallery figcaption{padding:20px 0 0}
+.sudoku-gallery h3{font-size:18px}
+.sudoku-gallery p{font-size:14px;color:var(--muted)}
+.footer-links{flex-wrap:wrap}
+@media(max-width:800px){.sudoku-hero{gap:28px}.sudoku-hero h1{font-size:48px;letter-spacing:-2px}.sudoku-gallery{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.sudoku-hero{grid-template-columns:1fr;padding:40px 0}.sudoku-hero-shot{max-width:260px}.sudoku-gallery{gap:18px}.sudoku-gallery h3{font-size:16px}.nav{gap:12px}.brand{font-size:14px}.nav a{font-size:11px}.header{gap:8px}.footer-links{gap:16px}}
+.sudoku-icon{margin:0 auto;width:min(100%,300px)}
+.sudoku-icon img{border-radius:24%;box-shadow:0 30px 80px #0005}

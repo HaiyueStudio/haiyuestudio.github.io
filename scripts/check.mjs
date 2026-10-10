@@ -37,3 +37,13 @@ if(process.argv.includes('--release')) {
 }
 if(errors.length) { console.error(errors.join('\n')); process.exitCode=1; }
 else console.log(`Checked ${htmls.length} pages: internal links, anchors, assets, metadata and ad file OK${process.argv.includes('--release')?' (release configuration)':' (preview; not release approval)'}.`);
+
+for (const relative of ['moonlight-sudoku/index.html','moonlight-sudoku/support/index.html','moonlight-sudoku/privacy/index.html']) {
+  const text=await readFile(path.join(out,relative),'utf8');
+  if(!text.includes('Moonlight Sudoku')) throw Error(`${relative}: missing product name`);
+  if(!text.includes('/moonlight-sudoku/privacy/')) throw Error(`${relative}: missing dedicated privacy link`);
+}
+const sudokuPolicy=await readFile(path.join(out,'moonlight-sudoku/privacy/index.html'),'utf8');
+for (const required of ['camera','photo-library add','does not request','QR','StoreKit','AdMob','2026']) {
+  if(!sudokuPolicy.includes(required)) throw Error(`Sudoku policy missing ${required}`);
+}
